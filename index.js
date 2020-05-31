@@ -157,7 +157,7 @@ app.post('/admin',(req,res)=>{
 
 app.get('/articlehome', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })
-  res.render('articles/index', { articles: articles })
+  res.render('articles/index', { articles: articles ,total:total,recovered:recovered,deaths:deaths})
 })
 
 app.get('/travelguidelines',(req,res)=>{
@@ -194,7 +194,7 @@ app.post('/signupnews', (req, res) => {
 
   // Make sure fields are filled
   if (!firstName || !lastName || !email || !query1) {
-    res.redirect('/newsupdates/fail.html');
+    res.render('newsupdates/fail', {total:total,recovered:recovered,deaths:deaths });
     return;
   }
 
@@ -206,7 +206,7 @@ app.post('/signupnews', (req, res) => {
         {   
             console.log("bro already done candidate present")
             console.log(founduser);
-            res.redirect('/newsupdates/fail.html')
+            res.render('newsupdates/fail', { total:total,recovered:recovered,deaths:deaths })
         }
 
         else
@@ -221,7 +221,7 @@ app.post('/signupnews', (req, res) => {
                 newUse.save(()=>{
                     console.log('done  created')
                     console.log(newUse)
-                    res.redirect('/newsupdates/success.html')
+                    res.render('newsupdates/success', {total:total,recovered:recovered,deaths:deaths })
                 });   
   
         }
