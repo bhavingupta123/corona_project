@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORONA TRACKER</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
+
+    <style type="text/css">
+        .nav-wrapper {
+            background: linear-gradient(90deg, rgba(255, 153, 51, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(19, 136, 8, 1) 100%);
+            font-size: medium;
+        }
+
+        body {
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+            color: #818181;
+            height: 100%;
+            background-color: #f1f1f1;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+
+            z-index: 9999;
+            border: 0;
+            font-size: 20px;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: Montserrat, sans-serif;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+
+        .navbar li a,
+        .navbar .navbar-brand {
+            color: #fff !important;
+            font-size: 12px;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 16px !important;
+        }
+
+        .navbar-nav li a:hover,
+        .navbar-nav li.active a {
+            color: #f4511e !important;
+            background-color: #fff !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+
+        #feed,
+        #over {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: white;
+        }
+
+        #over,
+        #sympt,
+        #preve,
+        #treat {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        h2 {
+            font-size: 26px;
+            text-transform: uppercase;
+            color: #303030;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            font-size: 22px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        h5 {
+            font-size: 20px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+
+
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            margin: 0;
+            padding: 10px 0 0;
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body id="myPage" style="background-color: #f1f1f1;" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <div class="text-secondary bg-white">
+        <marquee direction="left">
+            <font color="black"><b>CURRENT UPDATES:<span style="color: red;">TOTAL CASES IN INDIA = <%= total %> </span> &nbsp;&nbsp;  ,  &nbsp;&nbsp; <span style="color: green;">RECOVERED = <%= recovered %> </span>  &nbsp;&nbsp; <span style="color: blue;"> DEATHS = <%= deaths %> </span></b></font>
+        </marquee>
+    </div>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="https://static.googleusercontent.com/media/safety.google/en//static/securitytips-covid19/COVID19-Security-Tips-Google-Safety-Center-en-in.pdf?cache=0aebbf1
+        " class="brand-logo center"><span class="light-blue-text text-darken-4">
+                    <font color="black" size="10" "><center><b> &nbsp;C<img src="
+                        https://img.icons8.com/color/40/000000/coronavirus.png" />
+                    </font>
+                    <font color="black" size="10" ">VID-19 India
+                            Tracker</b></center>
+                            </font>
+                        </span></a>
+                </div>
+            </nav>
+
+            <nav class=" navbar navbar-dark bg-dark navbar-expand-sm">
+                        <div class="container">
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbar-list-2">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="/"><b>HOME</b></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/statewise"><b>STATEWISE(INDIA)</b></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/news"><b>NEWS</b></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/country"><b>WORLD UPDATES</b></a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/hospital"><b>HOSPITAL</b></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/emergency"><b>HELPLINE</b></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/travelguidelines"><b>TRAVEL</b></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/articlehome"><b>BLOG</b></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/signupnews"><b>NEWSLETTER</b></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+    </nav>
+    <br>
+    <div class="container">
+        <center>
+
+
+
+            <h1><b>
+                    <font color="black" size="88px"><mark>TRAVEL GUIDELINES</mark></font>
+                </b></h1>
+
+
+
+        </center>
+
+    </div>
+    </br>
+    <div id="sympt" class="container">
+        <center>
+
+            <img src="./images/travel1.png" style="max-width:100%;height: auto;" />
+        </center>
+        <div id="over" class="container" id="feed">
+            <div class="container-fluid text-center bg-grey" style="padding:15px;border-radius:15px">
+                <div class="content">
+                    <center>
+                        <font color="black">
+                            <h2><b>Guidelines for domestic travel (air/train/inter-state bus travel)</b></h2>
+                        </font>
+                    </center>
+                    <h5> 1) All passengers shall be advised to download Arogya Setu app on their mobile devices.</h5>
+                    <h5>2) The States/UTs shall ensure that all passengers shall undergo thermal screening at the point
+                        of departure and only asymptomatic passengers are allowed to board the flight/train/bus.</h5>
+                    <h5>3)During boarding and travel, all passengers shall use face covers/mask. They will also follow
+                        hand hygiene, respiratory hygiene and maintain environmental hygiene.</h5>
+                    <h5>4)At airports/railway stations/ bus terminals required measures to ensure social distancing
+                        shall
+                        be taken.</h5>
+                    <h5>5) Airports/railway stations/bus terminals should be regularly sanitized/disinfected and
+                        availability of soaps and sanitizers shall be ensured.</h5>
+                    <h5>6) Thermal screening at exit point shall be arranged.</h5>
+                    <h5>7) Asymptomatic passengers will be permitted to go with the advice that they shall self-monitor
+                        their health for 14 days. In case, they develop any symptoms, they shall inform the district
+                        surveillance officer or the state/national call center (1075).</h5>
+                    <h5>8) Those found symptomatic will be isolated and taken to the nearest health facility. They will
+                        be assessed for clinical severity at the health facility.</h5>
+                    <h5>9) Those having moderate or severe symptoms will be admitted to dedicated COVID Health
+                        facilities and managed accordingly</h5>
+                    <h5>10) Those having mild symptoms will be given the option of home isolation or isolated in the
+                        Covid
+                        Care Centre (both public & private facilities) as appropriate and tested as per ICMR protocol
+                        available at <a
+                            href="https://www.mohfw.gov.in/pdf/Revisedtestingguidelines.pdf">
+                            <br>https://www.mohfw.gov.in/pdf/Revisedtestingguidelines.pdf.</a><br>
+                        If positive, they will continue in COVID Care Centre and will be managed as per clinical
+                        protocol.
+                        If negative, the passenger may be allowed to go home, isolate himself/herself and selfmonitor
+                        his/her health for further
+                        7 days. In case, any symptoms develop they shall inform
+                        the district surveillance officer or the state/national call center (1075).</h5>
+                    <h5><b>NOTE: States can also develop their own protocol with regards to quarantine and isolation
+                            as per their assessment.</b></h5>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div id="over" class="container" id="feed">
+            <div class="container-fluid text-center bg-grey" style="padding:15px;border-radius:15px">
+                <div class="content">
+                    <center>
+                        <font color="black">
+                            <h2><b>For More Info</b></h2>
+                        </font>
+                    </center>
+                    <h4><b><a target="blank" href="https://www.mohfw.gov.in/pdf/Guidelinesforinternationalarrivals.pdf">
+                                ->
+                                Guidelines
+                                for International arrivals
+                            </a></b></h4>
+                    <h4><b><a target="blank"
+                                href="https://www.mohfw.gov.in/pdf/Guidelinesfordomestictravel(airortrainorinter-statebustravel).pdf">
+                                ->
+                                Guidelines for domestic travel (air/train/inter-state bus travel)
+                            </a></b></h4>
+                    <h4><b><a target="blank" href="https://www.mohfw.gov.in/pdf/DGSOrder04of2020.pdf"> ->
+                                Instructions to all major and minor ports for dealing with novel coronavirus
+                                (COVID-19)
+                            </a></b></h4>
+                    <h4><b><a target="blank" href="https://www.mohfw.gov.in/pdf/Traveladvisory.pdf"> ->
+                                Additional Travel Advisory for Novel Coronavirus Disease (COVID-19)
+                            </a></b></h4>
+                    <h4><b><a target="blank" href="https://www.mohfw.gov.in/pdf/SOPQuarantineofPassengers.pdf"> ->
+                                Guidelines
+                                for International arrivals
+                            </a></b></h4>
+                    <h4><b><a target="blank" href="https://www.mohfw.gov.in/pdf/Guidelinesforinternationalarrivals.pdf">
+                                ->
+                                Standard Operating Procedure for Passenger Movement post Disembarkation
+                            </a></b></h4>
+                    <h4><b><a target="blank"
+                                href="https://www.mohfw.gov.in/pdf/InternationalCruiseShipsSOPforCovid19.pdf">
+                                ->
+                                Standard Operating Procedure (SOP) to handle CORONAVIRUS (COVID-19)
+                                for International Cruise Ships at major ports of India
+                            </a></b></h4>
+                    <h4><b><a target="blank"
+                                href="https://boi.gov.in/content/advisory-travel-and-visa-restrictions-related-covid-19">
+                                ->
+                                Travel and Visa restrictions related to COVID-19
+                            </a></b></h4>
+                    <h4><b><a target="blank"
+                                href="https://www.mohfw.gov.in/pdf/Consolidated%20Travel%20advisory%20to%20travelers%20Updated%2002032020.pdf">
+                                ->
+                                Consolidated Travel advisory in view of COVID-19
+                            </a></b></h4>
+                    <h4><b><a target="blank" href="https://www.mohfw.gov.in/pdf/AdditionalTravelAdvisory10032020.pdf">
+                                ->
+                                Additional Travel Advisory (II) for COVID-19 for Indians intending to travel
+                                abroad
+                            </a></b></h4>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+
+            </div>
+         </div>
+
+         <footer class="container-fluid text-center">
+            <br>
+            <br>
+            <a href="#myPage" title="To Top">
+                <i class="fa fa-sort-asc" style="font-size:36px;color:black"></i>
+            </a>
+            <br>
+            <br>
+            <div class="row footer-bar" style="background-color:#343a40!important;padding:10px; vertical-align: middle;">
+                <br>
+                <div class="col-sm-6" style="border-right:1px solid white;">
+                    <p style=" vertical-align: middle;">
+                        <font color="white">QUICK LINKS</font>
+                    </p>
+                </div>
+                <div class="col-sm-6">
+    
+                    <a href="/" data-color-scheme="no-preference: dark; light: light; dark: dark;">Home</a>
+    
+                    &nbsp; | &nbsp;
+                    <a href="/statewise" data-color-scheme="no-preference: dark; light: light; dark: dark;">State Wise </a>
+    
+                    &nbsp; | &nbsp;
+                    <a href="/country" data-color-scheme="no-preference: dark; light: light; dark: dark;">Country Wise</a>
+                </div>
+        </footer>
+     </body>
+</html>

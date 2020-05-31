@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <style type="text/css">
         .nav-wrapper {
             background: linear-gradient(90deg, rgba(255, 153, 51, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(19, 136, 8, 1) 100%);
@@ -171,7 +172,7 @@ margin:20px;
 <body id="myPage" style="background-color: #f1f1f1;" data-spy="scroll" data-target=".navbar" data-offset="60">
     <div class="text-secondary bg-white">
         <marquee direction="left">
-            <font color="black"><b>CURRENT UPDATES:</b></font>
+            <font color="black"><b>CURRENT UPDATES : &nbsp;&nbsp; <span style="color: red;">TOTAL CASES IN INDIA = <%= total.total %></span> &nbsp;&nbsp;  ,  &nbsp;&nbsp; <span style="color: green;">DISCHARGED = <%= total.discharged %> </span>&nbsp;&nbsp; ,   &nbsp;&nbsp; <span style="color: blue;"> DEATHS = <%= total.deaths %> </span> </b></font>
         </marquee>
     </div>
     <nav>
@@ -207,7 +208,7 @@ margin:20px;
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/news"><b>OVERVIEW</b></a>
+                                        <a class="nav-link" href="/news"><b>NEWS</b></a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/country"><b>WORLD UPDATES</b></a>
@@ -219,22 +220,34 @@ margin:20px;
                                     <li class="nav-item">
                                         <a class="nav-link" href="/emergency"><b>HELPLINE</b></a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/travelguidelines"><b>TRAVEL</b></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/articlehome"><b>BLOG</b></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/signupnews"><b>NEWSLETTER</b></a>
+                                    </li>
                                     
                                 </ul>
                             </div>
                         </div>
     </nav>
     <br>
-
+    
     <div id="over" class="container" id="feed">
         <div class="container-fluid text-center bg-grey" style="padding:15px;border-radius:15px">
             <h1><b>STATEWISE UPDATES</b></h1>
+            <p style="color: red;"><b></b>(scroll down for statewise corona data or click arrow given below)</b></p>
+            
+            <a href="#myInput">To  Statewise Corona Data &nbsp;<i class="fa fa-arrow-circle-down" style="font-size:24px"></i></a>    
             <div id="carouselContent" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active text-center p-4">
                         <h4><b>PM Modi's Rs 20 lakh crore package more than expected; India reforms best during
                                 crisis</b></h4>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5MobyrlBHYg" frameborder="0"
+                        <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/5MobyrlBHYg" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
 
@@ -242,21 +255,21 @@ margin:20px;
                     <div class="carousel-item text-center p-4">
 
                         <h4><b>Dr Harsh Vardhan takes charge as WHO Executive Board Chairman</b></h4>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/G95867mD-YY" frameborder="0"
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/G95867mD-YY" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
                     <div class="carousel-item text-center p-4">
-                        <img src="./images/pm-modi-speech-2.jpg" />
+                        <img style="max-width:100%;height: auto;" src="./images/pm-modi-speech-2.jpg" />
                     </div>
                     <div class="carousel-item text-center p-4">
-                        <img src="./images/atmanirbhar.jpg" />
+                        <img style="max-width:100%;height: auto;" src="./images/atmanirbhar.jpg" />
                     </div>
                     <div class="carousel-item text-center p-4">
-                        <img src="./images/Capture-6.png" />
+                        <img style="max-width:100%;height: auto;" src="./images/Capture-6.png" />
                     </div>
                     <div class="carousel-item text-center p-4">
-                        <img src="./images/videogif.gif" />
+                        <img style="max-width:100%;height: auto;" src="./images/videogif.gif" />
                     </div>
 
 
@@ -277,28 +290,37 @@ margin:20px;
         </div>
 
       <div  id="over" class="container" id="feed">
-        <div>
-          <div class="bingwidget" data-type="covid19" data-location-id="India"  data-language="en-us"></div>
-        </div>  
+        
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="bingwidget" data-type="covid19" data-location-id="India"  data-language="en-us"></div>
+            </div>
+          
+            <div class="col-sm-3"></div>
+        </div>   
+
+            
+         
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for state.." title="Type in a name">
         <div style="overflow-x:auto;">             
           <table id="myTable">
             <tr class="header">
-              <th >State Name</th>
+              <th style="color: black;">State Name</th>
               <th></th>
-              <th >Cases</th>
+              <th style="color: red;">Cases</th>
               <th></th>
-              <th>Recovered</th>
+              <th style="color: green;">Recovered</th>
               <th></th>
               <th>Deaths</th>
             </tr>
               <% candidateList.forEach(function(candidate){ %>   
                 <tr>
-                  <td><%= candidate.name %></td>
+                  <td style="color: black;"><%= candidate.loc %></td>
                   <td></td>
-                  <td><%= candidate.cases  %></td>
+                  <td style="color: red;"><%= candidate.totalConfirmed  %></td>
                   <td></td>
-                  <td><%= candidate.recovered  %></td>
+                  <td style="color: green;"><%= candidate.discharged  %></td>
                   <td></td>
                   <td><%= candidate.deaths %></td>
                 </tr>   
@@ -330,13 +352,13 @@ margin:20px;
             </div>
             <div class="col-sm-6">
 
-                <a href="#1" data-color-scheme="no-preference: dark; light: light; dark: dark;">Overview</a>
+                <a href="/" data-color-scheme="no-preference: dark; light: light; dark: dark;">Home</a>
 
                 &nbsp; | &nbsp;
-                <a href="#2" data-color-scheme="no-preference: dark; light: light; dark: dark;">Country Wise</a>
+                <a href="/statewise" data-color-scheme="no-preference: dark; light: light; dark: dark;">State Wise </a>
 
                 &nbsp; | &nbsp;
-                <a href="#3" data-color-scheme="no-preference: dark; light: light; dark: dark;">State Wise</a>
+                <a href="/country" data-color-scheme="no-preference: dark; light: light; dark: dark;">Country Wise</a>
             </div>
     </footer>
       <script>

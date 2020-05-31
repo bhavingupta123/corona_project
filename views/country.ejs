@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <style type="text/css">
         .nav-wrapper {
             background: linear-gradient(90deg, rgba(255, 153, 51, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(19, 136, 8, 1) 100%);
@@ -170,7 +171,7 @@ margin:20px;
 <body id="myPage" style="background-color: #f1f1f1;" data-spy="scroll" data-target=".navbar" data-offset="60">
     <div class="text-secondary bg-white">
         <marquee direction="left">
-            <font color="black"><b>CURRENT UPDATES:</b></font>
+            <font color="black"><b>CURRENT UPDATES: <span style="color: red;">TOTAL CASES IN INDIA = <%= total %> </span> &nbsp;&nbsp;  ,  &nbsp;&nbsp; <span style="color: green;">RECOVERED = <%= recovered %> </span>  &nbsp;&nbsp; <span style="color: blue;"> DEATHS = <%= deaths %> </span></b></font>
         </marquee>
     </div>
     <nav>
@@ -197,27 +198,38 @@ margin:20px;
                             </button>
                             <div class="collapse navbar-collapse" id="navbar-list-2">
                                 <ul class="navbar-nav">
-                                  <li class="nav-item ">
-                                    <a class="nav-link" href="/"><b>HOME</b></a>
-                                </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="/"><b>HOME</b></a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/statewise"><b>STATEWISE(INDIA)</b></a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/statewise"><b>STATEWISE(INDIA)</b></a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/news"><b>OVERVIEW</b></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/country"><b>WORLD UPDATES</b></a>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/hospital"><b>HOSPITAL</b></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/emergency"><b>HELPLINE</b></a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/news"><b>NEWS</b></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/country"><b>WORLD UPDATES</b></a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/hospital"><b>HOSPITAL</b></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/emergency"><b>HELPLINE</b></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/travelguidelines"><b>TRAVEL</b></a>
+                                      </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/articlehome"><b>BLOG</b></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/signupnews"><b>NEWSLETTER</b></a>
+                                    </li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -227,6 +239,9 @@ margin:20px;
     <div id="over" class="container" id="feed">
         <div class="container-fluid text-center bg-grey" style="padding:15px;border-radius:15px">
             <h1><b>WORLDWIDE  UPDATES</b></h1>
+            <p style="color: red;"><b></b>(scroll down for Country wise corona data or click arrow given below)</b></p>
+            <a href="#myInput">To  Country wise Corona Data &nbsp;<i class="fa fa-arrow-circle-down" style="font-size:24px"></i></a>
+
             <div id="carouselContent" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active text-center p-4">
@@ -240,27 +255,27 @@ margin:20px;
                     <div class="carousel-item text-center p-4">
 
                         <h4><b><a target="blank" href="https://www.dailymail.co.uk/news/article-8328405/Europe-prepare-second-deadly-wave-coronavirus-director-warns.html">WHO warns Europe to prepare for SECOND WAVE of coronavirus this winter</a></b></h4>
-                        <img src="./images/europe.jpg" width="750px" height="415px"/>
+                        <img src="./images/europe.jpg" style="max-width:100%;height: auto;"/>
                     </div>
                     <div class="carousel-item text-center p-4">
                       <h4><b><a target="blank" href="https://www.theguardian.com/world/2020/may/08/the-three-step-plan-to-relax-restrictions-and-reopen-australia-after-coronavirus-crisis">The three-step plan for reopening Australia after Covid-19</a></b></h4>
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/xIqeq7wM-uU" frameborder="0"
+                      <iframe style="max-width:100%;height: auto;" src="https://www.youtube.com/embed/xIqeq7wM-uU" frameborder="0"
                           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                           allowfullscreen></iframe>
                     </div>
                     <div class="carousel-item text-center p-4">
                         <h4><b><a target="blank" href="https://news.sky.com/story/coronavirus-is-taking-different-path-in-africa-due-to-age-differences-11993356">Coronavirus appears to be taking a "different pathway" in Africa compared with the rest of the world</a></b></h4>
-                        <img src="./images/africa.jpeg" />
+                        <img src="./images/africa.jpeg" style="max-width:100%;height: auto;"/>
                     </div>
                     <div class="carousel-item text-center p-4">
                       <h4><b><a target="blank" href="https://www.clinicaltrialsarena.com/news/canada-covid-19-vaccine-trials/">Health Canada approves first Covid-19 vaccine trials</a></b></h4>
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/_sub4chq8iQ" frameborder="0"
+                      <iframe style="max-width:100%;height: auto;" src="https://www.youtube.com/embed/_sub4chq8iQ" frameborder="0"
                           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                           allowfullscreen></iframe>
                     </div>
                     <div class="carousel-item text-center p-4">
                         <h4><b><a href="https://www.aseanbriefing.com/news/coronavirus-asia-asean-live-updates-by-country/" target="blank">The Coronavirus in Asia and ASEAN – Live Updates by Country</a></b></h4>
-                        <img src="./images/asia.jpg" />
+                        <img src="./images/asia.jpg" style="max-width:100%;height: auto;" />
                     </div>
 
                     <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
@@ -280,34 +295,39 @@ margin:20px;
           </div>
 
           <div  id="over" class="container" id="feed">
-            <div>
-              <div class="bingwidget" data-type="covid19" data-market="en-us" data-language="en-us"></div>
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <div class="bingwidget" data-type="covid19" data-market="en-us" data-language="en-us" ></div>
+                </div>
+              
+                <div class="col-sm-3"></div>
             </div>  
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for country.." title="Type in a name">
             <div style="overflow-x:auto;">             
               <table id="myTable">
                 <tr class="header">
-                  <th style="width:60%;">Country Name</th>
+                  <th style="width:60%;color: black;">Country Name</th>
                   <th></th>
-                  <th style="width:40%;">Total Cases</th>
+                  <th style="width:40%;color: blue;">Total Cases</th>
                   <th></th>
-                  <th style="width:60%;">Total Recovered</th>
+                  <th style="width:60%; color: red;">Active Cases</th>
                   <th></th>
-                  <th style="width:40%;">Active Cases</th>
+                  <th style="width:40%; color: green;">Total Recovered</th>
                   <th></th>
                   <th style="width:40%;">Deaths</th>
                 </tr>
                   <% candidateList.forEach(function(candidate){ %>   
                     <tr>
-                      <td><%= candidate.country%></td>
+                      <td style="color: black;"><%= candidate.country%></td>
                       <td></td>
-                      <td><%= candidate.totalCases %></td>
+                      <td style="color: blue;"><%= candidate.totalCases %></td>
                       <td></td>
-                      <td><%= candidate.totalRecovered %></td>
+                      <td style="color: red;"><%= candidate.activeCases %></td>
                       <td></td>
-                      <td><%= candidate.activeCases %></td>
+                      <td style="color: green;"><%= candidate.totalRecovered %></td>
                       <td></td>
-                      <td><%= candidate. totalDeaths %></td>
+                      <td style="color:grey;"><%= candidate. totalDeaths %></td>
                     </tr>   
                 <%  })%>
               </table> 
@@ -330,13 +350,13 @@ margin:20px;
                 </div>
                 <div class="col-sm-6">
     
-                    <a href="#1" data-color-scheme="no-preference: dark; light: light; dark: dark;">Overview</a>
+                    <a href="/" data-color-scheme="no-preference: dark; light: light; dark: dark;">Home</a>
     
                     &nbsp; | &nbsp;
-                    <a href="#2" data-color-scheme="no-preference: dark; light: light; dark: dark;">Country Wise</a>
+                    <a href="/statewise" data-color-scheme="no-preference: dark; light: light; dark: dark;">State Wise </a>
     
                     &nbsp; | &nbsp;
-                    <a href="#3" data-color-scheme="no-preference: dark; light: light; dark: dark;">State Wise</a>
+                    <a href="/country" data-color-scheme="no-preference: dark; light: light; dark: dark;">Country Wise</a>
                 </div>
         </footer>
           <script>
