@@ -172,7 +172,7 @@ margin:20px;
 <body id="myPage" style="background-color: #f1f1f1;" data-spy="scroll" data-target=".navbar" data-offset="60">
     <div class="text-secondary bg-white">
         <marquee direction="left">
-            <font color="black"><b>CURRENT UPDATES:&nbsp;&nbsp; <span style="color: red;">TOTAL CASES IN INDIA = <%= total %> </span> &nbsp;&nbsp;  ,  &nbsp;&nbsp; <span style="color: green;">RECOVERED = <%= recovered %> </span>  &nbsp;&nbsp; <span style="color: blue;"> DEATHS = <%= deaths %> </span></b></b></font>
+            <font color="black"><b>CURRENT UPDATES:&nbsp;&nbsp; <span style="color: red;">TOTAL CASES IN INDIA = <%= total %> </span> &nbsp;&nbsp;  ,  &nbsp;&nbsp; <span style="color: green;">RECOVERED = <%= recovered %> </span>  &nbsp;&nbsp; <span style="color: blue;">, DEATHS = <%= deaths %> </span></b></b></font>
         </marquee>
     </div>
     <nav>
@@ -195,6 +195,10 @@ margin:20px;
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false"
                                 aria-label="Toggle navigation">
+                                <h6>
+                                  <font color="white" size="3">Menu</font>
+                              </h6>
+                               
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbar-list-2">
@@ -215,7 +219,7 @@ margin:20px;
                                   </li>
                                   
                                   <li class="nav-item">
-                                      <a class="nav-link" href="/hospital"><b>HOSPITAL</b></a>
+                                      <a class="nav-item nav-link disabled" href="/hospital"><b>HOSPITAL</b></a>
                                   </li>
                                   <li class="nav-item">
                                       <a class="nav-link" href="/emergency"><b>HELPLINE</b></a>
@@ -251,7 +255,6 @@ margin:20px;
         </div>
         <div id="sympt" class="container">
             <h2>COVID DEDICATED FACILITIES</h2>
-
             <font color="black" size="4">
                 <p>Government Of India has classified the Covid Dedicated Facilities into 3 categories.</p>
                 <br>
@@ -335,23 +338,23 @@ margin:20px;
       <div style="overflow-x:auto;">             
         <table id="myTable">
           <tr class="header">
-            <th style="width:60%;">State Name</th>
+            <th style="width:60%; color:black;">State Name</th>
             <th></th>
-            <th style="width:40%;">Hospital Name</th>
+            <th style="width:40%; color: darkblue;">Hospital Name</th>
             <th></th>
-            <th>City</th>
+            <th style="color:red;">City</th>
             <th></th>
-            <th>Ownership</th>
+            <th style="color: green;">Ownership</th>
           </tr>
             <% candidateList.forEach(function(candidate){ %>   
               <tr>
-                <td><%= candidate.state%></td>
+                <td style="color:black;"><%= candidate.state%></td>
                 <td></td>
-                <td><%= candidate.name %></td>
+                <td style="color:darkblue;"><%= candidate.name %></td>
                 <td></td>
-                <td><%= candidate.city %></td>
+                <td style="color:red;"><%= candidate.city %></td>
                 <td></td>
-                <td><%= candidate.ownership %></td>
+                <td style="color:green;"><%= candidate.ownership %></td>
                 <td></td>
               </tr>   
                   <!--<li><a href="#"><%= candidate.name %></a>&nbsp;&nbsp;<label class="" for="" id="votes"><%= candidate.cases  %></label></li>--> 

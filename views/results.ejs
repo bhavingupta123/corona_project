@@ -172,7 +172,7 @@ margin:20px;
 <body id="myPage" style="background-color: #f1f1f1;" data-spy="scroll" data-target=".navbar" data-offset="60">
     <div class="text-secondary bg-white">
         <marquee direction="left">
-            <font color="black"><b>CURRENT UPDATES : &nbsp;&nbsp; <span style="color: red;">TOTAL CASES IN INDIA = <%= total.total %></span> &nbsp;&nbsp;  ,  &nbsp;&nbsp; <span style="color: green;">DISCHARGED = <%= total.discharged %> </span>&nbsp;&nbsp; ,   &nbsp;&nbsp; <span style="color: blue;"> DEATHS = <%= total.deaths %> </span> </b></font>
+            <font color="black"><b>CURRENT UPDATES : &nbsp;&nbsp; <span style="color: red;">TOTAL CASES IN INDIA = <%= total.total %></span> &nbsp;&nbsp;  ,  &nbsp;&nbsp; <span style="color: green;">DISCHARGED = <%= total.discharged %> </span>&nbsp;&nbsp; ,   &nbsp;&nbsp; <span style="color: blue;">, DEATHS = <%= total.deaths %> </span> </b></font>
         </marquee>
     </div>
     <nav>
@@ -195,6 +195,9 @@ margin:20px;
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false"
                                 aria-label="Toggle navigation">
+                                <h6>
+                                    <font color="white" size="3">Menu</font>
+                                </h6>
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbar-list-2">
@@ -204,7 +207,7 @@ margin:20px;
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/statewise"><b>STATEWISE(INDIA)</b></a>
+                                        <a class="nav-item nav-link disabled" href="/statewise"><b>STATEWISE(INDIA)</b></a>
                                     </li>
 
                                     <li class="nav-item">
